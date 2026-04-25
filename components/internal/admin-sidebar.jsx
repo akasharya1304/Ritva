@@ -29,7 +29,7 @@ const AdminSidebar = () => {
     { href: "/customers", icon: MdPeople, label: "Customers" },
   ];
 
-  const isActive = (path: string) => 
+  const isActive = (path) => 
     path === "/" ? pathname === "/" : pathname?.startsWith(path);
 
   return (

@@ -143,10 +143,15 @@
 }
 
 @layer components {
+  .bg-cream {
+    background-color: #fdfbf7;
+  }
+  .text-gradient-saffron {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-orange-600 to-amber-500;
+  }
   .sanskrit-border {
     @apply relative border-2 border-border rounded-xl;
   }
-  
   .sanskrit-border::before {
     content: '';
     @apply absolute inset-[3px] border border-gold/30 rounded-[calc(var(--radius)-2px)] pointer-events-none;
