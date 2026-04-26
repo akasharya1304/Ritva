@@ -214,7 +214,14 @@ import { useRouter, useParams, useSearchParams } from "next/navigation";
 import { FaArrowLeft, FaSpinner, FaScroll, FaBookOpen, FaFont } from "react-icons/fa";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjsLib.version}/legacy/build/pdf.worker.min.mjs`;
+// pdfjsLib.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjsLib.version}/legacy/build/pdf.worker.min.mjs`;
+// pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
+if (typeof window !== "undefined" && !pdfjsLib.GlobalWorkerOptions.workerSrc) {
+  pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
+    "pdfjs-dist/legacy/build/pdf.worker.min.mjs",
+    import.meta.url
+  ).toString();
+}
 
 // --- SUB-COMPONENT FOR CLEAN RENDERING ---
 const PDFPageCanvas = ({ page, scale = 2.0 }) => {
@@ -335,7 +342,7 @@ export default function ManuscriptReader() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-cream to-cream-dark">
-      <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border">
+      <header className="sticky top-0 z-20 backdrop-blur-md bg-background/80 border-b border-border">
         <div className="flex items-center justify-between px-4 py-3 max-w-3xl mx-auto">
           <button onClick={() => router.back()} className="flex items-center text-sm font-serif hover:opacity-70">
             <FaArrowLeft className="w-4 h-4 mr-1" /> Back

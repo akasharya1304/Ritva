@@ -143,7 +143,7 @@ const AdminBooks = () => {
             title: item.title || "",
             author: item.author || ""
           }).toString();
-          router.push(`/media/books/manuscript/${id}?${query}`);
+          router.push(`/media/books/${id}?${query}`);
         }}
         className="text-primary font-serif hover:underline text-sm"
       >
@@ -161,13 +161,13 @@ const AdminBooks = () => {
           <p className="text-sm text-muted-foreground font-serif">पन्थीनां पुरावृत्तम् — Sacred Texts & Digital Repository</p>
         </div>
         
-        <button 
+        {/* <button 
           onClick={() => setIsDialogOpen(true)}
           className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl font-bold shadow-soft hover:shadow-elevated transition-all active:scale-95"
         >
           <FaPlus className="w-4 h-4" />
           Add New Book
-        </button>
+        </button> */}
       </div>
 
       <div className="ornament-line w-full" />
