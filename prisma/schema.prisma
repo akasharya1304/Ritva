@@ -23,3 +23,31 @@ model Book {
 model ritva {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 }
+
+model YogaContent {
+  id                String         @id @default(auto()) @map("_id") @db.ObjectId
+  slug              String         @unique // e.g., "introduction-to-yoga"
+  title_en          String
+  title_hi          String?        
+  category          String         // e.g., "Philosophy", "History"
+  thumbnailUrl      String?        
+  estimatedReadTime Int            
+  order             Int            // To keep chapters in sequence
+  
+  // This is the array of blocks (Paragraphs, Quotes, Images)
+  sections          ContentBlock[] 
+  
+  createdAt         DateTime?      @default(now())
+  updatedAt         DateTime?      @updatedAt
+}
+
+// Using a type (Embedded Document) for the content parts
+type ContentBlock {
+  type       String   // "heading", "paragraph", "quote", "image", "list"
+  content_en String   
+  content_hi String?  
+  author     String?  // Specifically for quotes
+  imageUrl   String?  // Specifically for image blocks
+  caption_en String?  
+  caption_hi String?
+}

@@ -69,7 +69,7 @@ const DataTable = ({
                             <FaEye className="w-4 h-4" />
                           </button>
                         )}
-                        {onEdit && (
+                        {/* {onEdit && (
                           <button 
                             onClick={() => onEdit(item)}
                             title="Edit Record"
@@ -77,8 +77,8 @@ const DataTable = ({
                           >
                             <FaEdit className="w-4 h-4" />
                           </button>
-                        )}
-                        {onDelete && (
+                        )} */}
+                        {/* {onDelete && (
                           <button 
                             onClick={() => onDelete(item)}
                             title="Delete Record"
@@ -86,7 +86,7 @@ const DataTable = ({
                           >
                             <FaTrash className="w-4 h-4" />
                           </button>
-                        )}
+                        )} */}
                       </div>
                     </td>
                   )}
