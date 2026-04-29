@@ -379,9 +379,9 @@ export default function ManuscriptReader() {
         )}
 
         {!loading && !error && pages.map((page, index) => (
-          <section key={index} className="manuscript-page sanskrit-border p-3 md:p-6 relative mb-12 bg-white/80 shadow-md">
+          <section key={index} className="manuscript-page sanskrit-border p-0.5 relative mb-12 bg-white/80 shadow-md">
             <PDFPageCanvas page={page} scale={zoom} />
-            <div className="flex items-center justify-center gap-3 mt-6 pt-4 border-t border-gold/20">
+            <div className="flex items-center justify-center gap-3 py-4 border-t border-gold/20">
               <span className="text-gold">✦</span>
               <span className="font-display text-sm text-muted-foreground">{index + 1}</span>
               <span className="text-gold">✦</span>
