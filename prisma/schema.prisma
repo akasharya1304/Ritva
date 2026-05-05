@@ -51,3 +51,33 @@ type ContentBlock {
   caption_en String?  
   caption_hi String?
 }
+
+model YogaPose {
+  id        String          @id @default(auto()) @map("_id") @db.ObjectId
+  category  String          // Asana / Pranayama/ Mudra / Bandha / Shatkanna
+  asanaName String          // Padanguli Naman (toe bending)
+  group     String          // Pawanmuktasana Part 1 ANTI-RHEUMATIC GROUP
+  type      String          // Beginner
+  details   YogaPoseDetails
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+}
+
+type YogaPoseDetails {
+  pic               String[]
+  steps             String[]
+  stage             YogaPoseStage[]
+  breathing         String?
+  awareness         String?
+  benefits          String?
+  contraindications String?
+  practiceNote      String?
+  variation         String?
+  sequence          String?
+  duration          String?
+}
+
+type YogaPoseStage {
+  index       Int
+  description String
+}
