@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 
 const AdminAsanas = async () => {
   const asanas = await prisma.yogaPose.findMany({
-    orderBy: { createdAt: 'desc' },
+    orderBy: { createdAt: 'asc' },
   });
 
   return (

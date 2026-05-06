@@ -53,7 +53,7 @@ const DataTable = ({
                   {columns.map((col, colIndex) => (
                     <td key={colIndex} className="px-6 py-4 text-sm text-foreground font-serif">
                       {col.render 
-                        ? col.render((item)[col.accessor], item) 
+                        ? col.render((item)[col.accessor], item, rowIndex) 
                         : (item)[col.accessor]}
                     </td>
                   ))}

@@ -8,7 +8,7 @@ const YogaPoseForm = ({ initialData = null, onClose, onSuccess }) => {
   const [formData, setFormData] = useState(initialData || {
     category: "Asana",
     asanaName: "",
-    group: "",
+    group: "Pawanmuktasana Part 1- ANTI-RHEUMATIC GROUP",
     type: "Beginner",
     details: {
       pic: [],
@@ -234,7 +234,7 @@ const YogaPoseForm = ({ initialData = null, onClose, onSuccess }) => {
                 required
                 value={formData.group}
                 onChange={(e) => setFormData({...formData, group: e.target.value})}
-                placeholder="e.g. Pawanmuktasana Part 1 ANTI-RHEUMATIC GROUP"
+                placeholder="e.g. Pawanmuktasana Part 1- ANTI-RHEUMATIC GROUP"
                 className="w-full bg-muted/30 border border-border rounded-lg px-4 py-3 text-sm font-serif outline-none focus:border-primary transition-colors"
               />
             </div>
@@ -348,7 +348,7 @@ const YogaPoseForm = ({ initialData = null, onClose, onSuccess }) => {
                       value={stage.description}
                       onChange={(e) => updateStage(index, 'description', e.target.value)}
                       placeholder={`Stage description...`}
-                      rows="2"
+                      rows="3"
                       className="flex-1 bg-background border border-border rounded-lg px-4 py-3 text-sm font-serif outline-none focus:border-primary transition-colors resize-y"
                     />
                     <button 

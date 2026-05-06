@@ -5,6 +5,11 @@ import DataTable from "@/components/comman/DataTable";
 const AsanasTableWrapper = ({ data }) => {
   const columns = [
     {
+      header: "Order",
+      accessor: "id",
+      render: (id, d, index) => <div className="w-10 h-10 bg-muted/30 border border-border rounded flex items-center justify-center text-[14px] font-bold text-muted-foreground">{index + 1}</div>
+    },
+    {
       header: "Image",
       accessor: "details",
       render: (details) => {
