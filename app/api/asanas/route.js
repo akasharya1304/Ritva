@@ -8,12 +8,31 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export async function GET() {
+export async function GET(request) {
   try {
-    const poses = await prisma.yogaPose.findMany({
-      orderBy: { createdAt: 'desc' },
-    });
-    return NextResponse.json(poses, { status: 200 });
+    const { searchParams } = new URL(request.url);
+    const page = parseInt(searchParams.get('page')) || 1;
+    const limit = parseInt(searchParams.get('limit')) || 10;
+    const skip = (page - 1) * limit;
+
+    const [poses, total] = await Promise.all([
+      prisma.yogaPose.findMany({
+        skip,
+        take: limit,
+        orderBy: { createdAt: 'asc' },
+      }),
+      prisma.yogaPose.count(),
+    ]);
+
+    return NextResponse.json({
+      data: poses,
+      pagination: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+      }
+    }, { status: 200 });
   } catch (error) {
     console.error("GET /api/asanas error:", error);
     return NextResponse.json({ error: "Failed to fetch", details: error.message }, { status: 500 });

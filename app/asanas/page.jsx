@@ -4,10 +4,6 @@ import AsanasTableWrapper from "./AsanasTableWrapper";
 import { prisma } from "@/lib/prisma";
 
 const AdminAsanas = async () => {
-  const asanas = await prisma.yogaPose.findMany({
-    orderBy: { createdAt: 'asc' },
-  });
-
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-end">
@@ -19,7 +15,7 @@ const AdminAsanas = async () => {
       </div>
       <div className="ornament-line w-full" />
       
-      <AsanasTableWrapper data={asanas} />
+      <AsanasTableWrapper />
     </div>
   );
 };

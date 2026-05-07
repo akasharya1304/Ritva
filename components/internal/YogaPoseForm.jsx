@@ -8,7 +8,7 @@ const YogaPoseForm = ({ initialData = null, onClose, onSuccess }) => {
   const [formData, setFormData] = useState(initialData || {
     category: "Asana",
     asanaName: "",
-    group: "Pawanmuktasana Part 1- ANTI-RHEUMATIC GROUP",
+    group: "Pawanmuktasana Part 3- ENERGY BLOCK POSTURES",
     type: "Beginner",
     details: {
       pic: [],
@@ -348,7 +348,7 @@ const YogaPoseForm = ({ initialData = null, onClose, onSuccess }) => {
                       value={stage.description}
                       onChange={(e) => updateStage(index, 'description', e.target.value)}
                       placeholder={`Stage description...`}
-                      rows="3"
+                      rows="5"
                       className="flex-1 bg-background border border-border rounded-lg px-4 py-3 text-sm font-serif outline-none focus:border-primary transition-colors resize-y"
                     />
                     <button 

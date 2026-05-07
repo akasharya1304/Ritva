@@ -48,7 +48,8 @@ const DataTable = ({
               data.map((item, rowIndex) => (
                 <tr 
                   key={item.id || rowIndex} 
-                  className="hover:bg-primary/5 transition-all duration-200 group"
+                  onClick={() => onView && onView(item)}
+                  className={`hover:bg-primary/5 transition-all duration-200 group ${onView ? 'cursor-pointer' : ''}`}
                 >
                   {columns.map((col, colIndex) => (
                     <td key={colIndex} className="px-6 py-4 text-sm text-foreground font-serif">

@@ -19,9 +19,9 @@ const CustomDialog = ({
       {/* Backdrop overlay for closing on click outside */}
       <div className="absolute inset-0" onClick={onClose} />
       
-      <div className={`w-full ${maxWidth} bg-background sanskrit-border overflow-hidden shadow-elevated animate-in fade-in zoom-in duration-300 relative z-10`}>
-        <div className="relative p-6">
-          {/* Header */}
+      <div className={`w-full ${maxWidth} max-h-[90vh] bg-background sanskrit-border flex flex-col shadow-elevated animate-in fade-in zoom-in duration-300 relative z-10`}>
+        {/* Header - Fixed at top */}
+        <div className="p-6 pb-0">
           <div className="flex items-center justify-between mb-2">
             <h2 className="font-display text-2xl text-primary">{title}</h2>
             <button 
@@ -31,21 +31,24 @@ const CustomDialog = ({
               <FaTimes className="w-5 h-5" />
             </button>
           </div>
-          
           <div className="ornament-line w-1/4 mb-6" />
+        </div>
 
-          {/* Body Content */}
+        {/* Body Content - Scrollable */}
+        <div className="flex-1 overflow-y-auto p-6 pt-0 custom-scrollbar">
           <div className="text-foreground">
             {children}
           </div>
+        </div>
 
-          {/* Footer */}
-          {footer && (
-            <div className="flex gap-3 justify-end mt-8 pt-6 border-t border-border/50">
+        {/* Footer - Fixed at bottom */}
+        {footer && (
+          <div className="p-6 pt-4 border-t border-border/50 bg-muted/5">
+            <div className="flex gap-3 justify-end">
               {footer}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

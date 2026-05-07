@@ -170,4 +170,14 @@
   .card-yoga:hover {
     @apply shadow-elevated -translate-y-0.5;
   }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-border/60 rounded-full hover:bg-border transition-colors;
+  }
 }
