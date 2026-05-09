@@ -81,3 +81,17 @@ type YogaPoseStage {
   index       Int
   description String
 }
+
+model AsanaContent {
+  id        String               @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  summary   String
+  details   AsanaContentDetail[]
+  createdAt DateTime             @default(now())
+  updatedAt DateTime             @updatedAt
+}
+
+type AsanaContentDetail {
+  heading     String
+  description String
+}

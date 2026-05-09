@@ -8,7 +8,7 @@ const YogaPoseForm = ({ initialData = null, onClose, onSuccess }) => {
   const [formData, setFormData] = useState(initialData || {
     category: "Asana",
     asanaName: "",
-    group: "Pawanmuktasana Part 3- ENERGY BLOCK POSTURES",
+    group: "Vajra Asanas",
     type: "Beginner",
     details: {
       pic: [],

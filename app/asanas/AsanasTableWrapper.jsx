@@ -151,7 +151,7 @@ const AsanasTableWrapper = () => {
         {selectedAsana && (
           <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             {/* Large Image Header */}
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-border shadow-lg">
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border shadow-lg">
               {selectedAsana.details?.pic?.[0] ? (
                 <img 
                   src={selectedAsana.details.pic[0]} 
@@ -163,7 +163,7 @@ const AsanasTableWrapper = () => {
                   No image available
                 </div>
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex items-end p-8">
                 <div>
                   <h3 className="text-3xl font-display text-white mb-2">{selectedAsana.asanaName}</h3>
                   <div className="flex gap-4">
@@ -227,7 +227,7 @@ const AsanasTableWrapper = () => {
                 <div className="space-y-4">
                   {selectedAsana.details.steps.map((step, index) => (
                     <div key={index} className="flex gap-4 p-4 bg-muted/10 rounded-xl border border-border/30 hover:bg-muted/20 transition-all">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
+                      <div className="shrink-0 w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
                         {index + 1}
                       </div>
                       <p className="text-base font-serif text-foreground pt-1 leading-relaxed">{step}</p>
